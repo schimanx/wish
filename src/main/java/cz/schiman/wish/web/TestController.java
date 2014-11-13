@@ -1,10 +1,10 @@
-package cz.schiman.wish.controllers;
+package cz.schiman.wish.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Test {
+public class TestController {
 
     @RequestMapping("/")
     String home() {
