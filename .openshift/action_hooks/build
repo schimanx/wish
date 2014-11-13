@@ -4,4 +4,4 @@ echo -e  "<settings>\n   <localRepository>$OPENSHIFT_DATA_DIR</localRepository>\
 mvn install -s $OPENSHIFT_DATA_DIR/settings.xml
 
 cd $OPENSHIFT_REPO_DIR
-mvn package -s .openshift/settings.xml -DskipTests=true
+mvn package -s $OPENSHIFT_DATA_DIR/settings.xml -DskipTests=true
