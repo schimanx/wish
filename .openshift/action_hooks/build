@@ -1,3 +1,19 @@
 #!/bin/bash
+
+##########
+echo "INFO: Running 'bower install'"
+cd $OPENSHIFT_REPO_DIR
+export HOME=$OPENSHIFT_REPO_DIR
+bower install
+
+##########
+echo "INFO: Running 'grunt build'"
+grunt build
+
+#########
+export HOME=$OLD_HOME
+echo "INFO: HOME is $HOME"
+
+#########
 cd $OPENSHIFT_REPO_DIR
 mvn clean package -s settings.xml -DskipTests=true
