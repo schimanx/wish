@@ -1,9 +1,30 @@
 <div ng-controller="WishesCtrl">
-<p>wishes</p>
-    <ul>
-        <li ng-repeat="wish in wishes">
-            <span>{{wish.name}}</span>
-            <p>{{wish.desc}}</p>
-        </li>
-    </ul>
+    <table class="table table-striped">
+        <tbody>
+        <tr ng-repeat="w in wishes">
+            <td style="width: 200px">
+                <img ng-src="{{w.img}}" class="img-thumbnail" alt="{{w.name}}" style="max-height: 200px; max-width
+                : 200px"/>
+            </td>
+            <td>
+                <h3>{{w.name}}</h3>
+
+                <p ng-bind="w.desc"/>
+
+                <div>
+                    <b>{{w.group}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
+                    | <b>{{w.price}} Kč</b>
+
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{w.rating}}" aria-valuemin="0"
+                             aria-valuemax="100"
+                             style="width: {{w.rating}}%;">
+                            <span class="sr-only">Důležitost {{w.rating}}%</span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

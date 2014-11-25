@@ -1,6 +1,7 @@
 var wishApp = angular.module('wishApp', [
     'ngRoute',
-    'wishControllers'
+    'wishControllers',
+    'wishServices'
 ]);
 
 wishApp.config(['$routeProvider',
