@@ -1,6 +1,6 @@
 wish
 ====
-Share your Wish.
+Share your wishes.
 ----
 Requirments:
 - Openshift DIY app with PostgreSQL DB
