@@ -5,3 +5,8 @@ body {
 .table tbody>tr>td.vert-align {
     vertical-align: middle;
 }
+
+.progress {
+    height: 3px;
+    margin-top: 10px;
+}
