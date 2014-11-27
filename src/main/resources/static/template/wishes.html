@@ -1,37 +1,55 @@
 <div ng-controller="WishesCtrl">
-    <div class="jumbotron">
-        <h2>Moje přání</h2>
-
-        <h1>Michal Mikeš</h1>
-
-        <p>...</p>
-
-        <p><a class="btn btn-primary" href="#" role="button">Upravit</a></p>
+    <div class="page-header">
+        <h1>Moje přání
+            <small>Test Test</small>
+        </h1>
     </div>
-    <div>
+
+    <div class="panel-body">
+        <p class="pull-right">
+            <a class="btn btn-primary" href="#" role="button">Upravit</a>
+        </p>
+
+        <p class="lead">
+            Basic panel example
+        </p>
+    </div>
+
+    <div class="panel-body">
         <p class="text-right">
-            Hledat: <input ng-model="query">
-            Řadit:
-            <select ng-model="order">
-                <option value="rating">Důležitost</option>
-                <option value="-name">Název</option>
-                <option value="-price">Cena</option>
-                <option value="-group">Skupina</option>
-            </select>
-            <a href="" ng-click="reverse=!reverse"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span></a>
             <a class="btn btn-success" href="#" role="button">Přidat přání</a>
         </p>
     </div>
-    <div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p class="pull-left">
+                Hledat: <input ng-model="query">
+            </p>
+
+            <p class="pull-right">
+                Řadit:
+                <select ng-model="order">
+                    <option value="-rating">Přání</option>
+                    <option value="name">Název</option>
+                    <option value="price">Cena</option>
+                    <option value="group">Skupina</option>
+                </select>
+                <a ng-click="reverse=!reverse">
+                    <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+                </a>
+            </p>
+        </div>
         <table class="table table-striped">
             <tbody>
             <tr ng-repeat="w in wishes | filter:query | orderBy:order:reverse">
                 <td class="text-center vert-align" style="width: 200px;">
-                    <a href="#wish/{{w.id}}"><img ng-src="{{w.img}}" class="img-thumbnail" alt="{{w.name}}" style="max-height: 200px; max-width
-                : 200px"/></a>
+                    <a href="#wish/{{w.id}}">
+                        <img ng-src="{{w.img}}" class="img-thumbnail" alt="{{w.name}}" style="max-height: 200px; max-width: 200px"/>
+                    </a>
                 </td>
                 <td>
-                    <a class="btn btn-danger pull-right" href="#" role="button">Smazat</a>
+                    <div class="pull-right text-right" confirm-delete on-confirm="delete(w)" role="button"></div>
 
                     <h3><a href="#wish/{{w.id}}">{{w.name}}</a></h3>
 
@@ -42,8 +60,8 @@
                         | Orientační cena <b>{{w.price | number:2}} Kč</b>
 
                         <div class="progress">
-                            <div class="progress-bar {{ratingToClass(w.rating)}}" role="progressbar" aria-valuenow="{{w.rating}}" aria-valuemin="0"
-                                 aria-valuemax="100"
+                            <div class="progress-bar {{ratingToClass(w.rating)}}" role="progressbar"
+                                 aria-valuenow="{{w.rating}}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{w.rating}}%;">
                                 <span class="sr-only">Důležitost {{w.rating}}%</span>
                             </div>
@@ -53,10 +71,5 @@
             </tr>
             </tbody>
         </table>
-    </div>
-    <div class="jumbotron">
-        <p>...</p>
-
-        <p><a class="btn btn-primary" href="#" role="button">Upravit</a></p>
     </div>
 </div>

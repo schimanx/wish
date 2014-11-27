@@ -1,9 +1,11 @@
-var wishServices = angular.module('wishServices', ['ngResource']);
-
-wishServices.factory('Wish', ['$resource',
-    function($resource){
-        return $resource('http://private-9015-wish1.apiary-mock.com/wishes/:wishId', {}, {
-            query: {method:'GET', params:{}, isArray:true},
-            get: {method:'GET', params:{wishId:''}, isArray:false}
-        });
-    }]);
+angular.module('wishServices', ['ngResource'])
+    .factory('Wish', ['$resource',
+        function ($resource) {
+            return $resource('http://private-9015-wish1.apiary-mock.com/wishes/:id', {}, {
+                query: {method: 'GET', isArray: true},
+                get: {method: 'GET'},
+                insert: {method: 'POST'},
+                delete: {method: 'DELETE'},
+                update: {method: 'PUT'}
+            });
+        }]);

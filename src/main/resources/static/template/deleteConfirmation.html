@@ -1,0 +1,10 @@
+<div class="deleteConfirmation">
+    <div ng-hide="isDeleting">
+        <a type="button" class="btn btn-danger" ng-click="startDelete()">Smazat
+        </a>
+    </div>
+    <div ng-show="isDeleting">
+        <a type="button" class="btn btn-default" ng-click="cancel()">Zrušit mazání</a>
+        <a type="button" class="btn btn-danger" ng-click="confirm()">Opravdu smazat?</a>
+    </div>
+</div>

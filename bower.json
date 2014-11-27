@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "~1.3",
-    "angular-route": "~1.3.0",
-    "angular-resource": "~1.3.0",
-    "bootstrap":"~3.3"
+    "angular-route": "~1.3",
+    "angular-resource": "~1.3",
+    "bootstrap":"~3.3",
+    "angular-loading-bar":"~0.6",
+    "angular-animate": "~1.3"
   },
   "homepage": "https://github.com/schimanx/wish",
   "authors": [
