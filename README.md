@@ -1,4 +1,4 @@
-wish - x
+wish
 ====
 Share your wishes.
 ----
