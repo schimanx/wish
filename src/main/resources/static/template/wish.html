@@ -1,5 +1,54 @@
-<div ng-controller="WishCtrl">
-    <p>wish</p>
-    <span>{{wish.name}}</span>
-    <p>{{wish.desc}}</p>
+<div ng-controller="WishController">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name">Název:</label><input id="name" type="text" class="form-control"
+                                                       ng-model="wish.name" required="required"/>
+                <span class="error" ng-show="name.$error.required">Povinné!</span>
+            </div>
+            <div class="form-group">
+                <label for="desc">Popis:</label><textarea id="desc" class="form-control" ng-model="wish.desc" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="url">Odkaz na přání:</label><input id="url" type="url" class="form-control"
+                                                               ng-model="wish.url"/>
+            </div>
+            <div class="form-group">
+                <label for="img">Odkaz na obrázek:</label><input id="img" type="url" class="form-control"
+                                                                 ng-model="wish.img"/>
+            </div>
+            <div class="form-group">
+                <label for="price">Cena:</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="price" ng-model="wish.price" min="0"/>
+                    <div class="input-group-addon"> Kč</div>
+                </div>
+                <span class="error" ng-show="price.$error.number">Nevalidní!</span>
+            </div>
+            <div class="form-group">
+                <!--<label for="group">Skupina:</label>
+                <select id="group" class="form-control" ng-model="wish.group"
+                        ng-options="wish.group for value in groups">
+                    <option value="">-- vyber --</option>
+                </select>-->
+            </div>
+            <div class="form-group">
+                <label for="rating">Přání:</label><input id="rating" type="number" class="form-control"
+                                                         ng-model="wish.rating" min="0" max="100"/>
+                <span class="error" ng-show="rating.$error.required">Povinné!</span>
+                <span class="error" ng-show="rating.$error.number">Nevalidní (0-100)!</span>
+                <div class="progress">
+                    <div class="progress-bar {{ratingToClass(wish.rating)}}" role="progressbar"
+                         aria-valuenow="{{wish.rating}}" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{wish.rating}}%;">
+                        <span class="sr-only">Přání {{wish.rating}}%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-default" href="#" role="button">Zpět</a>
+                <button type="submit" class="btn btn-success" ng-click="save()" role="button">Uložit</button>
+            </div>
+        </div>
+    </div>
 </div>

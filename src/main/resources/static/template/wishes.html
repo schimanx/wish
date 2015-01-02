@@ -1,4 +1,4 @@
-<div ng-controller="WishesCtrl">
+<div ng-controller="WishesController">
     <div class="page-header">
         <h1>Moje přání
             <small>Test Test</small>
@@ -17,7 +17,7 @@
 
     <div class="panel-body">
         <p class="text-right">
-            <a class="btn btn-success" href="#" role="button">Přidat přání</a>
+            <a class="btn btn-success" href="#/wish" role="button">Přidat přání</a>
         </p>
     </div>
 
@@ -57,13 +57,13 @@
 
                     <div>
                         <b>{{w.group}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
-                        | Orientační cena <b>{{w.price | number:2}} Kč</b>
+                        | Orientační cena <b>{{w.price}} Kč</b>
 
                         <div class="progress">
                             <div class="progress-bar {{ratingToClass(w.rating)}}" role="progressbar"
                                  aria-valuenow="{{w.rating}}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{w.rating}}%;">
-                                <span class="sr-only">Důležitost {{w.rating}}%</span>
+                                <span class="sr-only">Přání {{w.rating}}%</span>
                             </div>
                         </div>
                     </div>
