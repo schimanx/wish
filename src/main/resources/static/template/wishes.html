@@ -61,8 +61,8 @@
 
                         <div class="progress">
                             <div class="progress-bar {{ratingToClass(w.rating)}}" role="progressbar"
-                                 aria-valuenow="{{w.rating}}" aria-valuemin="0" aria-valuemax="100"
-                                 style="width: {{w.rating}}%;">
+                                 aria-valuenow="{{w.rating}}" aria-valuemin="0" aria-valuemax="10"
+                                 style="width: {{w.rating * 10}}%;">
                                 <span class="sr-only">Přání {{w.rating}}%</span>
                             </div>
                         </div>

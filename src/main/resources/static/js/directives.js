@@ -3,7 +3,7 @@ angular.module('wishApp')
  * A generic confirmation for risky actions.
  * Usage: Add attributes: ng-really-message="Are you sure"? ng-really-click="takeAction()" function
  */
-    .directive('ngReallyClick', [function () {
+    .directive('ngReallyClick', function () {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
@@ -15,11 +15,11 @@ angular.module('wishApp')
                 });
             }
         }
-    }])
+    })
 /**
- *
+ * Confirm delete directive
  */
-    .directive('confirmDelete', [function () {
+    .directive('confirmDelete', function () {
         return {
             replace: true,
             templateUrl: 'template/deleteConfirmation.html',
@@ -40,4 +40,4 @@ angular.module('wishApp')
                 }
             }
         }
-    }]);
+    });

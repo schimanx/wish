@@ -1,9 +1,9 @@
 angular.module('wishApp', [
     'ngRoute',
-    'angular-loading-bar',
     'ngAnimate',
     'wishControllers',
-    'wishServices'
+    'wishServices',
+    'angular-loading-bar'
 ])
     .config(['$routeProvider',
         function ($routeProvider) {
@@ -26,13 +26,13 @@ angular.module('wishApp', [
         }])
     .run(function($rootScope) {
         $rootScope.ratingToClass = function (rating) {
-            if (rating > 80) {
+            if (rating > 8) {
                 return "progress-bar-danger";
-            } else if (rating > 60) {
+            } else if (rating > 6) {
                 return "progress-bar-warning";
-            } else if (rating > 40) {
+            } else if (rating > 4) {
                 return "progress-bar-success";
-            } else if (rating > 20) {
+            } else if (rating > 2) {
                 return "progress-bar-info";
             } else {
                 return "";
