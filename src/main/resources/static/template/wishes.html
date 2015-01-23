@@ -58,15 +58,9 @@
                     <div>
                         <b>{{w.group}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
                         | Orientační cena <b>{{w.price}} Kč</b>
-
-                        <div class="progress">
-                            <div class="progress-bar {{ratingToClass(w.rating)}}" role="progressbar"
-                                 aria-valuenow="{{w.rating}}" aria-valuemin="0" aria-valuemax="10"
-                                 style="width: {{w.rating * 10}}%;">
-                                <span class="sr-only">Přání {{w.rating}}%</span>
-                            </div>
-                        </div>
                     </div>
+                    <star-rating id="star-rating-{{$index}}" data-size="xs" readonly="true" disabled="disabled"
+                                 value="{{w.rating}}"/>
                 </td>
             </tr>
             </tbody>

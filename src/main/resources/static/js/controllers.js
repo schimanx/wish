@@ -15,6 +15,8 @@ angular.module('wishControllers', [])
     .controller('WishController', ['$scope', '$routeParams', 'Wish',
         function ($scope, $routeParams, Wish) {
             if ($routeParams.wishId != null) {
-                $scope.wish = Wish.get({id: $routeParams.wishId});
+                $scope.wish = Wish.get({id: $routeParams.wishId}, function (wish) {
+                    $('#star-rating').rating('update', wish.rating);
+                });
             }
         }]);

@@ -40,4 +40,30 @@ angular.module('wishApp')
                 }
             }
         }
+    })
+
+    .directive("starRating", function () {
+        return {
+            replace: true,
+            restrict: "E",
+            template: "<input type='number' class='rating' min='0' max='5' " +
+            "step='1' data-stars='5' data-show-clear='false' data-min='0' data-max='5' " +
+            "data-step='1'>",
+            scope: {
+            },
+            link: function (scope, elem, attrs) {
+                scope.$watch('wishes', function(){
+                    $('#' + attrs.id).rating({
+                        starCaptions: {1: "Udělá radost", 2: "Líbí se", 3: "Přeji si", 4: "Chci", 5: "Musím mít"},
+                        starCaptionClasses: {
+                            1: "label label-primary",
+                            2: "label label-info",
+                            3: "label label-success",
+                            4: "label label-warning",
+                            5: "label label-danger"
+                        }
+                    });
+                });
+            }
+        }
     });
