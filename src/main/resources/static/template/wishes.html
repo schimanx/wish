@@ -45,7 +45,8 @@
             <tr ng-repeat="w in wishes | filter:query | orderBy:order:reverse">
                 <td class="text-center vert-align" style="width: 200px;">
                     <a href="#wish/{{w.id}}">
-                        <img ng-src="{{w.img}}" class="img-thumbnail" alt="{{w.name}}" ng-show="w.img"
+                        <img ng-src="{{w.img ? w.img : 'http://fakeimg.pl/190x150/?text=' + w.name}}"
+                             class="img-thumbnail" alt="{{w.name}}"
                              style="max-height: 200px; max-width: 200px"/>
                     </a>
                 </td>

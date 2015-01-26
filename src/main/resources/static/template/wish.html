@@ -56,7 +56,8 @@
                                 </div>
                             </td>
                             <td class="text-center vert-align" style="width: 200px;">
-                                <img ng-src="{{wish.img}}" class="img-thumbnail" alt="{{wish.name}}" ng-show="wish.img"
+                                <img ng-src="{{wish.img ? wish.img : 'http://fakeimg.pl/190x150/?text=' + wish.name}}"
+                                     class="img-thumbnail" alt="{{wish.name}}"
                                      style="max-height: 200px; max-width: 200px"/>
                             </td>
                         </tr>
