@@ -16,18 +16,24 @@
                                                               ng-model="wish.desc"
                                                               rows="3"></textarea>
                 </div>
-                <div class="form-group" ng-class="{'has-error': wishForm.url.$invalid || wishForm.img.$invalid}">
+                <div class="form-group" ng-class="{'has-error': wishForm.url.$invalid">
+                    <label for="url">Odkaz na přání:</label>
+                    <input id="url" name="url" type="url" class="form-control"
+                           ng-model="wish.url" placeholder="http://"/>
+                    <span class="text-danger" ng-show="wishForm.url.$dirty && wishForm.url.$invalid">
+                        <span ng-show="wishForm.url.$invalid">URL není validní (začínající http(s)://)!</span>
+                    </span>
+                    <span ng-show="wish.url">
+                        (<a ng-href="{{wish.url}}" target="_blank">Test odkazu</a>)
+                    </span>
+                </div>
+                <div class="form-group" ng-class="{'has-error': wishForm.img.$invalid}">
                     <table style="width: 100%">
                         <tbody>
                         <tr>
                             <td style="width: auto; padding-right: 10px;">
                                 <div class="form-group">
-                                    <label for="url">Odkaz na přání:</label>
-                                    <input id="url" name="url" type="url" class="form-control"
-                                           ng-model="wish.url" placeholder="http://"/>
-                                    <span class="text-danger" ng-show="wishForm.url.$dirty && wishForm.url.$invalid">
-                                        <span ng-show="wishForm.url.$invalid">URL není validní (začínající http(s)://)!</span>
-                                    </span>
+
                                     <label for="img">Odkaz na obrázek:</label>
                                     <input id="img" name="img" type="url" class="form-control"
                                            ng-model="wish.img" placeholder="http://"/>
@@ -37,9 +43,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Orientační cena:</label>
+
                                     <div class="input-group" ng-class="{'has-error': wishForm.price.$invalid}">
                                         <input type="number" class="form-control" id="price" name="price" ng-model="wish.price"
                                                min="0"/>
+
                                         <div class="input-group-addon"> Kč</div>
                                     </div>
                                     <span class="text-danger" ng-show="wishForm.price.$dirty && wishForm.price.$invalid">
@@ -48,9 +56,8 @@
                                 </div>
                             </td>
                             <td class="text-center vert-align" style="width: 200px;">
-                                <img ng-src="{{wish.img}}" class="img-thumbnail" alt="{{wish.name}}" style="max-height: 200px;
-                                    max-width: 200px"/>
-                                <a href="{{wish.url}}">Odkaz</a>
+                                <img ng-src="{{wish.img}}" class="img-thumbnail" alt="{{wish.name}}" ng-show="wish.img"
+                                     style="max-height: 200px; max-width: 200px"/>
                             </td>
                         </tr>
                         </tbody>
