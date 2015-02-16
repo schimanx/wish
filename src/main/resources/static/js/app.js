@@ -23,19 +23,4 @@ angular.module('wishApp', [
                 otherwise({
                     redirectTo: '/wishes'
                 });
-        }])
-    .run(function($rootScope) {
-        $rootScope.ratingToClass = function (rating) {
-            if (rating > 8) {
-                return "progress-bar-danger";
-            } else if (rating > 6) {
-                return "progress-bar-warning";
-            } else if (rating > 4) {
-                return "progress-bar-success";
-            } else if (rating > 2) {
-                return "progress-bar-info";
-            } else {
-                return "";
-            }
-        };
-    });
+        }]);

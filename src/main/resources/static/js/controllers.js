@@ -12,11 +12,30 @@ angular.module('wishControllers', [])
                 });
             };
         }])
-    .controller('WishController', ['$scope', '$routeParams', 'Wish',
-        function ($scope, $routeParams, Wish) {
+    .controller('WishController', ['$scope', '$routeParams', '$location', 'Wish',
+        function ($scope, $routeParams, $location, Wish) {
             if ($routeParams.wishId != null) {
-                $scope.wish = Wish.get({id: $routeParams.wishId}, function (wish) {
+                Wish.get({id: $routeParams.wishId}, function (wish) {
+                    $scope.wish = wish;
                     $('#star-rating').rating('update', wish.rating);
                 });
+            } else {
+                $scope.wish = new Wish();
+            }
+
+            $('#star-rating').on('rating.change', function(event, value) {
+                $scope.wish.rating = value;
+            });
+
+            $scope.save = function() {
+                if ($routeParams.wishId != null) {
+                    $scope.wish.$update({id: $routeParams.wishId}, function() {
+                        $location.path('wishes');
+                    });
+                } else {
+                    $scope.wish.$insert(function() {
+                        $location.path('wishes');
+                    });
+                }
             }
         }]);
