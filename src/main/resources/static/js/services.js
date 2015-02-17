@@ -9,15 +9,15 @@ angular.module('wishServices', ['ngResource'])
                 'update': {method: 'PUT'}
             });
             Wish.createWish = function () {
-                return new Wishes({
+                return new Wish({
                     name: '',
                     desc: '',
                     img: '',
                     url: '',
-                    price: '',
-                    group: '',
-                    rating: '',
-                    reserved: ''
+                    price: null,
+                    group: null,
+                    rating: 3,
+                    reserved: null
                 });
             };
 

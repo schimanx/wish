@@ -20,11 +20,11 @@ angular.module('wishControllers', [])
                     $('#star-rating').rating('update', wish.rating);
                 });
             } else {
-                $scope.wish = new Wish();
+                $scope.wish = Wish.createWish();
             }
 
             $('#star-rating').on('rating.change', function(event, value) {
-                $scope.wish.rating = value;
+                $scope.wish.rating = Number(value);
             });
 
             $scope.save = function() {

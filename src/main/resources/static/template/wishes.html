@@ -62,7 +62,7 @@
                         | Orientační cena <b>{{w.price}} Kč</b>
                     </div>
                     <star-rating id="star-rating-{{$index}}" data-size="xs" readonly="true" disabled="disabled"
-                                 value="{{w.rating}}"/>
+                                 ng-model="w.rating"/>
                 </td>
             </tr>
             </tbody>
