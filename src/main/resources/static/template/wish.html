@@ -65,11 +65,11 @@
                     </table>
                 </div>
                 <div class="form-group">
-                    <!--<label for="group">Skupina:</label>
+                    <label for="group">Skupina:</label>
                     <select id="group" name="group" class="form-control" ng-model="wish.group"
-                            ng-options="wish.group for value in groups">
+                            ng-options="value.id as value.name for value in groups">
                         <option value="">-- vyber --</option>
-                    </select>-->
+                    </select>
                 </div>
                 <div class="form-group" ng-class="{'has-error': wishForm.rating.$invalid}">
                     <label for="star-rating">Přání:</label>

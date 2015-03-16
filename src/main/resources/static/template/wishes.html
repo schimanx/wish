@@ -58,7 +58,7 @@
                     <p ng-bind="w.desc"/>
 
                     <div>
-                        <b>{{w.group}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
+                        <b>{{getGroup(w.group).name}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
                         | Orientační cena <b>{{w.price}} Kč</b>
                     </div>
                     <star-rating id="star-rating-{{$index}}" data-size="xs" readonly="true" disabled="disabled"

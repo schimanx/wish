@@ -1,24 +1,26 @@
 angular.module('wishControllers', [])
-    .controller('WishesController', ['$scope', 'Wish',
-        function ($scope, Wish) {
-            $scope.wishes = Wish.query();
+    .controller('WishesController', ['$rootScope', '$scope', 'Wish', 'Group',
+        function ($rootScope, $scope, Wish, Group) {
             $scope.order = '-rating';
             $scope.reverse = false;
 
             $scope.delete = function (item) {
                 Wish.delete({id: item.id}, function (success) {
-                    var idx = $scope.wishes.indexOf(item);
-                    $scope.wishes.splice(idx, 1);
+                    var idx = $rootScope.wishes.indexOf(item);
+                    $rootScope.wishes.splice(idx, 1);
                 });
             };
+
+            $scope.getGroup = function(id) {
+                return Group.getById(id);
+            };
         }])
-    .controller('WishController', ['$scope', '$routeParams', '$location', 'Wish',
-        function ($scope, $routeParams, $location, Wish) {
+    .controller('WishController', ['$rootScope', '$scope', '$routeParams', '$location', 'Wish', 'Group',
+        function ($rootScope, $scope, $routeParams, $location, Wish) {
+
             if ($routeParams.wishId != null) {
-                Wish.get({id: $routeParams.wishId}, function (wish) {
-                    $scope.wish = wish;
-                    $('#star-rating').rating('update', wish.rating);
-                });
+                $scope.wish = Wish.getById($routeParams.wishId);
+                $('#star-rating').rating('update', $scope.wish.rating);
             } else {
                 $scope.wish = Wish.createWish();
             }
@@ -33,9 +35,11 @@ angular.module('wishControllers', [])
                         $location.path('wishes');
                     });
                 } else {
-                    $scope.wish.$insert(function() {
+                    $scope.wish.$insert(function(wish) {
+                        $rootScope.wishes.push(wish);
                         $location.path('wishes');
                     });
                 }
-            }
+            };
+
         }]);
