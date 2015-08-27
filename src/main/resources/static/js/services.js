@@ -1,7 +1,7 @@
 angular.module('wishServices', ['ngResource'])
     .factory('Wish', ['$resource', '$rootScope',
         function ($resource, $rootScope) {
-            var Wish = $resource('http://private-9015-wish1.apiary-mock.com/wishes/:id', {}, {
+            var Wish = $resource('https://private-9015-wish1.apiary-mock.com/wishes/:id', {}, {
                 'query': {method: 'GET', isArray: true},
                 'get': {method: 'GET'},
                 'insert': {method: 'POST'},
@@ -30,7 +30,7 @@ angular.module('wishServices', ['ngResource'])
             return Wish;
         }]).factory('Group', ['$resource', '$rootScope',
         function ($resource, $rootScope) {
-            var Group = $resource('http://private-9015-wish1.apiary-mock.com/wishes/groups/:id', {}, {
+            var Group = $resource('https://private-9015-wish1.apiary-mock.com/wishes/groups/:id', {}, {
                 'query': {method: 'GET', isArray: true},
                 'get': {method: 'GET'},
                 'insert': {method: 'POST'},
