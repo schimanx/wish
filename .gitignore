@@ -1,3 +1,5 @@
 /target
 /wish.iml
 /.idea
+/src/test/*.iml
+/src/main/main.iml

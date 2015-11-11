@@ -20,6 +20,16 @@ angular.module('wishControllers', [])
 
             if ($routeParams.wishId != null) {
                 $scope.wish = Wish.getById($routeParams.wishId);
+                $('#star-rating').rating({
+                    starCaptions: {1: "Udělá radost", 2: "Líbí se", 3: "Přeji si", 4: "Chci", 5: "Musím mít"},
+                    starCaptionClasses: {
+                        1: "label label-primary",
+                        2: "label label-info",
+                        3: "label label-success",
+                        4: "label label-warning",
+                        5: "label label-danger"
+                    }
+                });
                 $('#star-rating').rating('update', $scope.wish.rating);
             } else {
                 $scope.wish = Wish.createWish();

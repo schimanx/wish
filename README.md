@@ -8,5 +8,6 @@ Requirments:
 - OR other computer with Java 7 and PostgreSQL DB
 
 Build:
-- bower install
+- npm install -g bower
+- bower update
 - mvn spring-boot:run
