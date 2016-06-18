@@ -43,26 +43,26 @@
         <table class="table table-striped">
             <tbody>
             <tr ng-repeat="w in wishes | filter:query | orderBy:order:reverse">
-                <td class="text-center vert-align" style="width: 200px;">
-                    <a href="#wish/{{w.id}}">
-                        <img ng-src="{{w.img ? w.img : 'http://fakeimg.pl/190x150/?text=' + w.name}}"
-                             class="img-thumbnail" alt="{{w.name}}"
-                             style="max-height: 200px; max-width: 200px"/>
-                    </a>
-                </td>
                 <td>
-                    <div class="pull-right text-right" confirm-delete on-confirm="delete(w)" role="button"></div>
-
-                    <h3><a href="#wish/{{w.id}}">{{w.name}}</a></h3>
-
-                    <p ng-bind="w.desc"/>
-
-                    <div>
-                        <b>{{getGroup(w.group).name}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
-                        | Orientační cena <b>{{w.price}} Kč</b>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <h3><a href="#wish/{{w.id}}">{{w.name}}</a></h3>
+                            <p ng-bind="w.desc"/>
+                            <div>
+                                <b>{{getGroup(w.group).name}}</b> | <b><a href="{{w.url}}">Odkaz</a></b>
+                                | Orientační cena <b>{{w.price}} Kč</b>
+                            </div>
+                            <star-rating id="star-rating-{{$index}}" data-size="xs" readonly="true" disabled="disabled"
+                                         ng-model="w.rating"/>
+                        </div>
+                        <div class="col-xs-4" ng-if="w.img">
+                            <a href="#wish/{{w.id}}">
+                                <img ng-src="{{w.img}}"
+                                     class="img-thumbnail img-responsive" alt="{{w.name}}"/>
+                            </a>
+                        </div>
                     </div>
-                    <star-rating id="star-rating-{{$index}}" data-size="xs" readonly="true" disabled="disabled"
-                                 ng-model="w.rating"/>
+                    <div confirm-delete on-confirm="delete(w)" role="button"></div>
                 </td>
             </tr>
             </tbody>

@@ -1,0 +1,247 @@
+FORMAT: 1A
+
+# wishes
+Wishes API is a *wish* service.
+
+# Group Wishes
+Wishes related resources of the **Wishes API**
+
+## Wishes Collection [/wishes]
+### List all Wishes [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            [{
+              "id": 1,
+              "name": "Lev",
+              "desc": "Description",
+              "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/258px-Lion_waiting_in_Namibia.jpg",
+              "url": "https://cs.wikipedia.org/wiki/Lev",
+              "price": 100000,
+              "group": 1,
+              "rating": 2,
+              "reserved": null
+            }, {
+              "id": 2,
+              "name": "Tygr",
+              "desc": "Description",
+              "img": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Panthera_tigris_amoyensis.jpg",
+              "url": "http://www.zooliberec.cz/",
+              "price": 50000,
+              "group": 2,
+              "rating": 3,
+              "reserved": 123
+            },
+            {
+              "id": 3,
+              "name": "AAA",
+              "desc": "Tmavě modrá (modrá i v jiných odstínech)",
+              "img": "",
+              "url": "https://cs.wikipedia.org/wiki/Praha",
+              "price": 100,
+              "group": 1,
+              "rating": 5,
+              "reserved": null
+            }]
+
+### Create a wish [POST]
++ Request (application/json)
+
+    + Body
+
+            { "name": "Levhart",
+              "desc": "Description",
+              "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/SriLankaLeopard-ZOO-Jihlava.jpg/258px-SriLankaLeopard-ZOO-Jihlava.jpg",
+              "url": "https://cs.wikipedia.org/wiki/Levhart",
+              "price": 100000,
+              "group": 2,
+              "rating": 4,
+              "reserved": null }
+
++ Response 201 (application/json)
+
+    + Body
+
+            { "id": 4,
+              "name": "Levhart",
+              "desc": "Description",
+              "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/SriLankaLeopard-ZOO-Jihlava.jpg/258px-SriLankaLeopard-ZOO-Jihlava.jpg",
+              "url": "https://cs.wikipedia.org/wiki/Levhart",
+              "price": 200000,
+              "group": 2,
+              "rating": 5,
+              "reserved": null }
+
+## Wishes [/wishes/{id}]
+A single Wish object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Wish to perform action with. Has example value.
+
+### Retrieve a Wish [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "id": 3,
+              "name": "Levhart",
+              "desc": "Description",
+              "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/SriLankaLeopard-ZOO-Jihlava.jpg/258px-SriLankaLeopard-ZOO-Jihlava.jpg",
+              "url": "https://cs.wikipedia.org/wiki/Levhart",
+              "price": 200000,
+              "group": 2,
+              "rating": 2,
+              "reserved": 123 }
+
+### Update a wish [PUT]
++ Request (application/json)
+
+    + Body
+
+            {   "id": 3,
+                "name": "Jaguár",
+                "desc": "Jaguár americký",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Panthera_onca.jpg/275px-Panthera_onca.jpg",
+                "url": "https://cs.wikipedia.org/wiki/Jagu%C3%A1r_americk%C3%BD",
+                "price": 250000,
+                "group": 2,
+                "rating": 4,
+                "reserved": 142 }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {   "id": 3,
+                "name": "Jaguár",
+                "desc": "Jaguár americký",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Panthera_onca.jpg/275px-Panthera_onca.jpg",
+                "url": "https://cs.wikipedia.org/wiki/Jagu%C3%A1r_americk%C3%BD",
+                "price": 250000,
+                "group": 2,
+                "rating": 5,
+                "reserved": 142 }
+
+
+### Remove a Wish [DELETE]
+
++ Response 204
+
+## Wishes Groups Collection [/wishes/groups]
+### List all Wishes Groups [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            [{
+              "id": 1,
+              "name": "Lvy",
+              "desc": "Description"
+            }, {
+              "id": 2,
+              "name": "Panteři",
+              "desc": "Description"
+            }]
+
+### Create a group [POST]
++ Request (application/json)
+
+    + Body
+
+            {
+              "name": "Kozy",
+              "desc": "Description"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "id": 3,
+              "name": "Kozy",
+              "desc": "Description"
+            }
+
+## Groups [/wishes/groups/{id}]
+A single Group object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Group to perform action with. Has example value.
+
+### Retrieve a Group [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "id": 1,
+              "name": "Lvy",
+              "desc": "Description"
+            }
+
+### Update a Group [PUT]
++ Request (application/json)
+
+    + Body
+
+            {
+              "id": 1,
+              "name": "Lvy",
+              "desc": "Updated description"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "id": 1,
+              "name": "Lvy",
+              "desc": "Updated description"
+            }
+
+
+### Remove a Group [DELETE]
+
++ Response 204
+
+## Wishes User [/user/]
+### User info [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "textId": "MichalMikes",
+              "desc": "Tady bude to co mám rád.",
+              "firstName": "Michal",
+              "surname": "Mikeš",
+              "email": "email@test.cz",
+            }
+
+### User info [PUT]
++ Request (application/json)
+
+    + Body
+
+            {
+              "textId": "MichalMikes",
+              "desc": "Tady bude to co mám rád plus něco navíc.",
+              "firstName": "Michal",
+              "surname": "Mikeš",
+              "email": "newemail@test.cz"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+             {
+              "textId": "MichalMikes",
+              "desc": "Tady bude to co mám rád plus něco navíc.",
+              "firstName": "Michal",
+              "surname": "Mikeš",
+              "email": "newemail@test.cz"
+            }
