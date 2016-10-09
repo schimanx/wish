@@ -9,6 +9,8 @@
     <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom styles for this template -->
     <link href="/css/login/login.css" rel="stylesheet"/>
+    <link href="/css/login/bootstrap-social.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,27 +21,11 @@
 </head>
 <body>
 <div class="container">
-    <div th:if="${param.error}" class="alert alert-danger" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Error:</span>
-        Chybný email nebo heslo.
+    <div class="form-signin">
+        <a th:href="@{/auth/google(scope='profile')}" class="ml btn btn-block btn-social btn-sm btn-google-plus"><i class="fa fa-google-plus"></i>Google+</a>
     </div>
-    <div th:if="${param.logout}" class="alert alert-danger" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Error:</span>
-        Jste odhlášený.
-    </div>
-    <form class="form-signin" role="form" th:action="@{/login}" method="post">
-        <h2 class="form-signin-heading">Přihlaš se</h2>
-        <label class="sr-only" for="username">Email</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Email" required="required"/>
-        <label class="sr-only" for="password">Heslo</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Heslo"
-               required="required"/>
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Přihlásit</button>
-    </form>
 </div>
-
+<div th:replace="fragments/exception :: errorInfo"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
