@@ -2,6 +2,11 @@ body {
     padding-top: 70px;
 }
 
+#navbar > ul.nav.navbar-nav.navbar-right > li > a {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
 .table tbody>tr>td.vert-align {
     vertical-align: middle;
 }
