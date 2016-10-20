@@ -1,4 +1,5 @@
 wish
+[![Build Status](https://travis-ci.org/schimanx/wish.svg?branch=master)](https://travis-ci.org/schimanx/wish)
 ====
 Share your wishes.
 ----
