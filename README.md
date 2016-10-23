@@ -1,5 +1,5 @@
 wish
-[![wercker status](https://app.wercker.com/status/56ccfe87d0f58f21790485fb00f0582c/s/master "wercker status")](https://app.wercker.com/project/byKey/56ccfe87d0f58f21790485fb00f0582c)
+[![Build Status](https://travis-ci.org/schimanx/wish.svg?branch=master)](https://travis-ci.org/schimanx/wish)
 ====
 Share your wishes.
 ----
