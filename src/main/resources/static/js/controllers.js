@@ -28,7 +28,8 @@ angular.module('wishControllers', [])
                         3: "label label-success",
                         4: "label label-warning",
                         5: "label label-danger"
-                    }
+                    },
+                    showCaption: false
                 });
                 $('#star-rating').rating('update', $scope.wish.rating);
             } else {
