@@ -4,7 +4,7 @@ build:
     - xenoterracide/maven:
         goals: clean package
 deploy:
-  openshift:
+  steps:
     - add-ssh-key:
         keyname: OPENSHIFT_SSH_KEY
         host: $OPENSHIFT_HOST
