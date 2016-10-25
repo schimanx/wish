@@ -109,6 +109,7 @@
                 <packaging.type>war</packaging.type>
             </properties>
             <build>
+                <fileName>wish</fileName>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
