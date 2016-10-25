@@ -105,10 +105,10 @@
             <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
             <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
             <id>openshift</id>
+            <properties>
+                <packaging.type>war</packaging.type>
+            </properties>
             <build>
-                <properties>
-                    <packaging.type>war</packaging.type>
-                </properties>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
