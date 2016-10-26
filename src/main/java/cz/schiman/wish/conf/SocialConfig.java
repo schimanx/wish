@@ -9,7 +9,7 @@ import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.social.UserIdSource;
 import org.springframework.social.config.annotation.ConnectionFactoryConfigurer;
 import org.springframework.social.config.annotation.EnableSocial;
-import org.springframework.social.config.annotation.SocialConfigurer;
+import org.springframework.social.config.annotation.SocialConfigurerAdapter;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
@@ -23,7 +23,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableSocial
-public class SocialConfig implements SocialConfigurer {
+public class SocialConfig extends SocialConfigurerAdapter {
 
   @Autowired
   private DataSource dataSource;
