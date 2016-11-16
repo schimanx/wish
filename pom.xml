@@ -24,7 +24,16 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>*.properties</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
             </resource>
         </resources>
     </build>
@@ -130,14 +139,16 @@
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                             <outputDirectory>target</outputDirectory>
                             <warName>ROOT</warName>
+                            <webResources>
+                                <resource>
+                                    <directory>src/main/webapp/WEB-INF</directory>
+                                    <filtering>true</filtering>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
                         </configuration>
                     </plugin>
                 </plugins>
-                <resources>
-                    <resource>
-                        <directory>src/main/webapp/WEB-INF</directory>
-                    </resource>
-                </resources>
             </build>
             <dependencies>
                 <dependency>
