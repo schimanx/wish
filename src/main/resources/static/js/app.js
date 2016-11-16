@@ -9,7 +9,7 @@ angular.module('wishApp', [
         function ($routeProvider) {
             $routeProvider.
                 when('/wishes', {
-                    templateUrl: '/template/wishes.html',
+                    templateUrl: './template/wishes.html',
                     controller: 'WishesController',
                     resolve: {
                         delayedData: function($q, $rootScope) {
@@ -18,7 +18,7 @@ angular.module('wishApp', [
                     }
                 }).
                 when('/wish/:wishId', {
-                    templateUrl: '/template/wish.html',
+                    templateUrl: './template/wish.html',
                     controller: 'WishController',
                     resolve: {
                         delayedData: function($rootScope) {
@@ -27,7 +27,7 @@ angular.module('wishApp', [
                     }
                 }).
                 when('/wish', {
-                    templateUrl: '/template/wish.html',
+                    templateUrl: './template/wish.html',
                     controller: 'WishController'
                 }).
                 otherwise({
