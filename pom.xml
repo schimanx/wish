@@ -137,7 +137,8 @@
                         <version>2.3</version>
                         <configuration>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
-                            <outputDirectory>target</outputDirectory>
+                            <!-- <outputDirectory>target</outputDirectory> -->
+                            <outputDirectory>deployments</outputDirectory>
                             <warName>ROOT</warName>
                             <webResources>
                                 <resource>
