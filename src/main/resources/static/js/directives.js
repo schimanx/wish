@@ -1,4 +1,4 @@
-angular.module('wishApp')
+angular.module('wishDirectives', [])
 /**
  * A generic confirmation for risky actions.
  * Usage: Add attributes: ng-really-message="Are you sure"? ng-really-click="takeAction()" function
@@ -30,10 +30,10 @@ angular.module('wishApp')
                 $scope.isDeleting = false;
                 $scope.startDelete = function () {
                     $scope.isDeleting = true;
-                }
+                };
                 $scope.cancel = function () {
                     $scope.isDeleting = false;
-                }
+                };
                 $scope.confirm = function () {
                     $scope.onConfirm();
                     $scope.isDeleting = false;

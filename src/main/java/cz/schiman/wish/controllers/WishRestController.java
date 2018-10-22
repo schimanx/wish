@@ -13,8 +13,12 @@ import java.security.Principal;
 @RestController
 public class WishRestController {
 
+  private final ConnectionRepository connectionRepository;
+
   @Autowired
-  private ConnectionRepository connectionRepository;
+  public WishRestController(ConnectionRepository connectionRepository) {
+    this.connectionRepository = connectionRepository;
+  }
 
   @GetMapping("/rest/api/")
   public String test(HttpServletRequest request, Principal currentUser, Model model) {

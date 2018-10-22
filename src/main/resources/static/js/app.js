@@ -3,6 +3,7 @@ angular.module('wishApp', [
     'ngAnimate',
     'wishControllers',
     'wishServices',
+    'wishDirectives',
     'angular-loading-bar'
 ])
     .config(['$routeProvider',

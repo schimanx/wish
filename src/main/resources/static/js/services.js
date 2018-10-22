@@ -23,6 +23,7 @@ angular.module('wishServices', ['ngResource'])
 
             Wish.getById = function (id) {
                 return $rootScope.wishes.filter(function (obj) {
+                    // noinspection EqualityComparisonWithCoercionJS
                     return obj.id == id;
                 })[0];
             };
@@ -40,6 +41,7 @@ angular.module('wishServices', ['ngResource'])
 
             Group.getById = function (id) {
                 return $rootScope.groups.filter(function (obj) {
+                    // noinspection EqualityComparisonWithCoercionJS
                     return obj.id == id;
                 })[0];
             };

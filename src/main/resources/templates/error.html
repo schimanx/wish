@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Error Page</title>
@@ -16,8 +15,8 @@
 </head>
 
 <body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"/>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!--
 <div th:replace="fragments/header :: userInfo"/>
@@ -27,17 +26,17 @@
     <h2>Error Page</h2>
 
     <p>
-        An error occurred at <span th:text="${timestamp}"/>
+        An error occurred at <span th:text="${timestamp}"></span>
     </p>
     <p>
-    <div>
-        <span style="font-weight: bold">HTTP Status: </span><span th:text="${status}"/>
-        (<span th:text="${error}"/>)
-    </div>
-    <div><span style="font-weight: bold">Message: </span><span th:text="${message}"/></div>
+        <div>
+            <span style="font-weight: bold">HTTP Status: </span><span th:text="${status}"></span>
+            (<span th:text="${error}"></span>)
+        </div>
+        <div><span style="font-weight: bold">Message: </span><span th:text="${message}"></span></div>
 
-    <div th:unless="${exception == null}"><span style="font-weight: bold">Exception: </span><span th:text="${exception}"/></div>
-    <div th:unless="${exception == null}"><span style="font-weight: bold">Trace:     </span><span th:text="${trace}"/></div>
+        <div th:unless="${exception == null}"><span style="font-weight: bold">Exception: </span><span th:text="${exception}"></span></div>
+        <div th:unless="${exception == null}"><span style="font-weight: bold">Trace:     </span><span th:text="${trace}"></span></div>
     </p>
     <p>
         Back to the <a th:href="@{/}">Home Page</a>
