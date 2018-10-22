@@ -14,14 +14,18 @@ import java.security.Principal;
 @Controller
 public class AppController {
 
-    @Autowired
-    private ConnectionRepository connectionRepository;
+    private final ConnectionRepository connectionRepository;
+
+    private final SocialControllerUtil util;
 
     @Autowired
-    private SocialControllerUtil util;
+    public AppController(ConnectionRepository connectionRepository, SocialControllerUtil util) {
+        this.connectionRepository = connectionRepository;
+        this.util = util;
+    }
 
     @RequestMapping("/")
-    String app(HttpServletRequest request, Principal currentUser, Model model) {
+    public String app(HttpServletRequest request, Principal currentUser, Model model) {
         util.setModel(request, currentUser, model);
         return "app";
     }

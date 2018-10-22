@@ -21,8 +21,12 @@ import javax.sql.DataSource;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+  private final DataSource dataSource;
+
   @Autowired
-  private DataSource dataSource;
+  public WebSecurityConfig(DataSource dataSource) {
+    this.dataSource = dataSource;
+  }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {

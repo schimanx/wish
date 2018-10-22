@@ -1,18 +1,15 @@
 package cz.schiman.wish.dao;
 
+import cz.schiman.wish.model.UserConnection;
+import cz.schiman.wish.model.UserProfile;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import cz.schiman.wish.model.UserConnection;
-import cz.schiman.wish.model.UserProfile;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @Repository
 public class UsersDao {
@@ -31,39 +28,33 @@ public class UsersDao {
         LOG.debug("SQL SELECT ON UserProfile: {}", userId);
 
         return jdbcTemplate.queryForObject("select * from UserProfile where userId = ?",
-            new RowMapper<UserProfile>() {
-                public UserProfile mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new UserProfile(
-                    userId,
-                    rs.getString("name"),
-                    rs.getString("firstName"),
-                    rs.getString("lastName"),
-                    rs.getString("email"),
-                    rs.getString("username"));
-                }
-            }, userId);
+                                           (rs, rowNum) -> new UserProfile(
+                                               userId,
+                                               rs.getString("name"),
+                                               rs.getString("firstName"),
+                                               rs.getString("lastName"),
+                                               rs.getString("email"),
+                                               rs.getString("username")),
+                                           userId);
     }
 
     public UserConnection getUserConnection(final String userId) {
         LOG.debug("SQL SELECT ON UserConnection: {}", userId);
 
         return jdbcTemplate.queryForObject("select * from UserConnection where userId = ?",
-            new RowMapper<UserConnection>() {
-                public UserConnection mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new UserConnection(
-                    userId,
-                    rs.getString("providerId"),
-                    rs.getString("providerUserId"),
-                    rs.getInt("rank"),
-                    rs.getString("displayName"),
-                    rs.getString("profileUrl"),
-                    rs.getString("imageUrl"),
-                    rs.getString("accessToken"),
-                    rs.getString("secret"),
-                    rs.getString("refreshToken"),
-                    rs.getLong("expireTime"));
-                }
-            }, userId);
+                                           (rs, rowNum) -> new UserConnection(
+                                               userId,
+                                               rs.getString("providerId"),
+                                               rs.getString("providerUserId"),
+                                               rs.getInt("rank"),
+                                               rs.getString("displayName"),
+                                               rs.getString("profileUrl"),
+                                               rs.getString("imageUrl"),
+                                               rs.getString("accessToken"),
+                                               rs.getString("secret"),
+                                               rs.getString("refreshToken"),
+                                               rs.getLong("expireTime")),
+                                           userId);
     }
 
     public void createUser(String userId, UserProfile profile) {

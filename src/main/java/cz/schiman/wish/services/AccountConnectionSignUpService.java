@@ -22,7 +22,7 @@ public class AccountConnectionSignUpService implements ConnectionSignUp {
     public String execute(Connection<?> connection) {
         org.springframework.social.connect.UserProfile profile = connection.fetchUserProfile();
         String userId = UUID.randomUUID().toString();
-        LOG.debug("Created user-id: " + userId);
+        LOG.debug("Created user-id: {}", userId);
         usersDao.createUser(userId, new UserProfile(userId, profile));
         return userId;
     }

@@ -25,11 +25,15 @@ import javax.sql.DataSource;
 @EnableSocial
 public class SocialConfig extends SocialConfigurerAdapter {
 
-  @Autowired
-  private DataSource dataSource;
+  private final DataSource dataSource;
+
+  private final UsersDao usersDao;
 
   @Autowired
-  private UsersDao usersDao;
+  public SocialConfig(DataSource dataSource, UsersDao usersDao) {
+    this.dataSource = dataSource;
+    this.usersDao = usersDao;
+  }
 
   @Override
   public void addConnectionFactories(ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment environment) {

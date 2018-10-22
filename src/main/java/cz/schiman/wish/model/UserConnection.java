@@ -1,6 +1,8 @@
 package cz.schiman.wish.model;
 
-public class UserConnection {
+import java.io.Serializable;
+
+public class UserConnection implements Serializable {
 
     private final String userId;
 
