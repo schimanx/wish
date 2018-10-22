@@ -22,9 +22,3 @@ create table UserProfile (
   username varchar(255),
   primary key (userId));
 create unique index UserProfilePK on UserProfile(userId);
-
---create table Data (
---  userId varchar(255) not null,
---  data varchar(1024),
---  primary key (userId));
---create unique index DataPK on Data(userId);
